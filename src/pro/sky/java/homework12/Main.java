@@ -5,24 +5,24 @@ public class Main {
     public static void main(String[] args) {
         Author palahniuk = new Author("Chuck", "Palahniuk");
         Author gogol = new Author("Nikolay", "Gogol");
+        Author gogolCopy = new Author("Nikolay", "Gogol");
         Book fightClub = new Book(palahniuk, "Fight Club", 1996);
         Book survivor = new Book(palahniuk, "Survivor", 1999);
-        Book deadSouls = new Book(gogol, "Dead Souls", 1042);
+        Book deadSouls = new Book(gogol, "Dead Souls", 1842);
+        Book deadSoulsCopy = new Book(gogol, "Dead Souls", 1842);
 
-        fullInfoAboutBook(fightClub);
-        fullInfoAboutBook(survivor);
-        fullInfoAboutBook(deadSouls);
+        System.out.println(palahniuk);
+        System.out.println(fightClub);
 
-        deadSouls.setPublishingYear(1842); //correct publishing year
-        System.out.println();
-        fullInfoAboutBook(deadSouls);
+        System.out.println("gogol.equals(palahniuk) = " + gogol.equals(palahniuk));
+        System.out.println("gogolCopy.equals(gogol) = " + gogolCopy.equals(gogol));
+        System.out.println("gogol.hashCode() = " + gogol.hashCode());
+        System.out.println("gogolCopy.hashCode() = " + gogolCopy.hashCode());
 
+        System.out.println("deadSouls.equals(fightClub) = " + deadSouls.equals(fightClub));
+        System.out.println("deadSoulsCopy.equals(deadSouls) = " + deadSoulsCopy.equals(deadSouls));
+        System.out.println("deadSouls.hashCode() = " + deadSouls.hashCode());
+        System.out.println("deadSoulsCopy.hashCode() = " + deadSoulsCopy.hashCode());
 
-    }
-
-    public static void fullInfoAboutBook(Book bookName) {
-        System.out.println("Book name: " + bookName.getBookName()
-                + " , author name : " + bookName.getAuthorName().getAuthorFullName()
-                + " , publishing year: " + bookName.getPublishingYear());
     }
 }
